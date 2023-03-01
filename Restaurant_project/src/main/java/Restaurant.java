@@ -70,4 +70,13 @@ public class Restaurant {
         return name;
     }
 
+
+    public int Cost_of_items_added(List<Item> Order){
+        int cost = 0 ;
+        for(Item item : Order){
+            cost = cost + item.getPrice();
+        }
+            return cost ;
+    }
+
 }

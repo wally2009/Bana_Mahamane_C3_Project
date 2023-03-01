@@ -65,5 +65,24 @@ class RestaurantTest {
         assertThrows(itemNotFoundException.class,
                 ()->restaurant.removeFromMenu("French fries"));
     }
+
+
+     @Test
+    public void select_items_from_menu_and_check_if_the_total_cost_is_equal_to_the_sum_of_price_of_all_items_added_in_the_menu(){
+        List<Item> order =  new ArrayList<>();
+        Item item = restaurant.findItemByName("Sweet corn soup");
+        if(item != null){
+           order.add(item);
+        }
+        item = restaurant.findItemByName("Vegetable lasagne");
+        if(item != null){
+           order.add(item);
+
+        }
+        int cost = restaurant.Cost_of_items_added(order);
+       assertEquals(cost,388);
+
+    }
+
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 }
